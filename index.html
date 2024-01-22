@@ -1,114 +1,16 @@
-User
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Fetch</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            transition: filter 0.4s ease; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .toggle-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .toggle-container label {
-            display: inline-block;
-            position: relative;
-            width: 60px;
-            height: 34px;
-        }
-
-        .toggle-container input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: background-color 0.4s ease; 
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: transform 0.4s ease; 
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
-
-        input:focus + .slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-
-       
-        body.grayscale {
-            filter: grayscale(100%);
-        }
-
-        .photo-container {
-            max-width: 750px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .photo-container img {
-            width: calc(50% - 16px);
-            height: 300px;
-            margin: 8px;
-            box-sizing: border-box;
-            transition: filter 0.4s ease; 
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div>Push</div>
     <h1>Photo Fetch</h1>
 
-    <div class="container">
+
+    <div class="container" >
         <div class="toggle-container">
             <label class="switch">
                 <input type="checkbox" id="greyscaleToggle" onchange="toggleGreyscale()">
@@ -117,19 +19,17 @@ User
             <span>Greyscale</span>
         </div>
 
-        <div class="photo-container">
-            <img src="foto1.jpg" alt="Foto 1">
-            <img src="foto2.jpg" alt="Foto 2">
-            <img src="foto3.jpg" alt="Foto 3">
-            <img src="foto4.jpg" alt="Foto 4">
+        <div class="button-container">
+            <button onclick="fetchRandomPhotos()">Fetch Random Photos</button>
+        </div>
+
+        <div class="photo-container" id="photoContainer">
+            <!-- Fotot  qe do te merren nga  js-->
         </div>
     </div>
 
-    <script>
-        function toggleGreyscale() {
-          
-            document.body.classList.toggle("grayscale");
-        }
-    </script>
+    
+
+    <script src="index.js"></script>
 </body>
 </html>
